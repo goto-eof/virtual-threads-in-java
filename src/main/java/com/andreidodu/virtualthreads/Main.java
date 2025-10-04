@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class Main {
     private static final int MAX_PLATFORM = 10;
-    private static final int MAX_VIRTUAL = 1_000_000;
+    private static final int MAX_VIRTUAL = 5_000_000;
 
     public static void main(String[] args) throws InterruptedException {
         startVirtualThreads();
