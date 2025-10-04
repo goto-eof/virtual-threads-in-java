@@ -6,7 +6,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
 public class Main {
-    private static final int MAX_PLATFORM = 10;
+    private static final int MAX_PLATFORM = Runtime.getRuntime().availableProcessors();
     private static final int MAX_VIRTUAL = 5_000_000;
 
     public static void main(String[] args) throws InterruptedException {
