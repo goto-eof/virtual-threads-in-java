@@ -7,3 +7,5 @@ Example of Virtual Threads in Java
 ## Technologies
 - Java 21
 - Maven
+
+<img src="https://andre-i.eu/api/v1/ipResource/custom.png?host=https://github.com/goto-eof/virtual-threads-in-java" />
