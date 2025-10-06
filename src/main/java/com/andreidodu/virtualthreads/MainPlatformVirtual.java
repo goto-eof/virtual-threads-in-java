@@ -5,7 +5,7 @@ import com.andreidodu.virtualthreads.task.HeavyTaskRunnable;
 import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
-public class Main {
+public class MainPlatformVirtual {
     private static final int MAX_PLATFORM = Runtime.getRuntime().availableProcessors();
     private static final int MAX_VIRTUAL = 5_000_000;
 
