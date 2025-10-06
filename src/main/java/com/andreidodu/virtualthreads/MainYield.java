@@ -2,7 +2,6 @@ package com.andreidodu.virtualthreads;
 
 import com.andreidodu.virtualthreads.task.TaskRunnable;
 
-import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 
 public class MainYield {
