@@ -6,6 +6,10 @@ import java.util.concurrent.CountDownLatch;
 
 public class MainYield {
 
+    static {
+        System.setProperty("jdk.tracePinnedThreads", "full");
+    }
+
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(2);
 

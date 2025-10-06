@@ -8,7 +8,7 @@ public record TaskRunnable(int id, CountDownLatch countDownLatch) implements Run
     @Override
     public void run() {
         IntStream.range(0, 10).forEach(i -> {
-            System.out.println("task " + id + "on thread " + Thread.currentThread().getName());
+            System.out.println("task " + id + " on thread " + Thread.currentThread().getName());
             Thread.yield();
         });
         countDownLatch.countDown();
