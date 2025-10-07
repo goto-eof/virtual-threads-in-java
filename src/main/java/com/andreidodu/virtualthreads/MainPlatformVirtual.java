@@ -1,6 +1,6 @@
 package com.andreidodu.virtualthreads;
 
-import com.andreidodu.virtualthreads.task.HeavyTaskRunnable;
+import com.andreidodu.virtualthreads.task.HeavyTaskRunnableWithLatch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
@@ -29,7 +29,7 @@ public class MainPlatformVirtual {
 
         IntStream.range(0, maxThreads)
                 .forEach(i -> {
-                    Thread thread = threadBuilder.unstarted(new HeavyTaskRunnable(i, countDownLatch));
+                    Thread thread = threadBuilder.unstarted(new HeavyTaskRunnableWithLatch(i, countDownLatch));
                     thread.start();
                 });
 
