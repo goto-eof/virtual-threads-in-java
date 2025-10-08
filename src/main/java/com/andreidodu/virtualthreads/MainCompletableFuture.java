@@ -1,5 +1,7 @@
 package com.andreidodu.virtualthreads;
 
+import com.sun.jdi.VoidType;
+
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 
@@ -10,15 +12,22 @@ public class MainCompletableFuture {
         runAsync()
                 .thenRun(() -> System.out.println("runAsync() done!"));
 
-        supplyAsync()
-                .thenAccept(System.out::println)
-                .thenRun(() -> System.out.println("supplyAsync() done!"));
 
-        complete()
-                .thenAccept(System.out::println)
-                .thenRun(() -> System.out.println("complete() done!"));
+        CompletableFuture<String> resSupply = supplyAsync()
+                .exceptionally(e -> {
+                    System.out.println(e.getMessage());
+                    return e.getMessage();
+                });
+
+
+        CompletableFuture<String> resultComplete = complete()
+                .exceptionally(e -> {
+                    System.out.println(e.getMessage());
+                    return e.getMessage();
+                });
 
         System.out.println("ending...");
+        System.out.printf("result: %s | %s%n", resSupply.join(), resultComplete.join());
         Thread.sleep(Duration.ofSeconds(3));
     }
 
@@ -37,7 +46,7 @@ public class MainCompletableFuture {
         return CompletableFuture.supplyAsync(() -> {
             try {
                 Thread.sleep(Duration.ofSeconds(1));
-                return "Hello World!";
+                throw new RuntimeException("error");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
